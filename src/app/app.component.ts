@@ -10,5 +10,6 @@ interface Data {
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-  data: Data = data;
+  public data: Data = data;
+  title = data.title;
 }
