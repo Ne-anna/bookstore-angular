@@ -6,15 +6,9 @@ import { AppComponent } from './app.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopNavigationComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, TopNavigationComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -10,7 +10,7 @@ interface NavigationData {
 @Component({
   selector: 'app-top-navigation',
   templateUrl: './top-navigation.component.html',
-  styleUrls: ['./top-navigation.component.sass'],
+  styleUrls: ['./top-navigation.component.scss'],
 })
 export class TopNavigationComponent {
   public data: NavigationData = data;
