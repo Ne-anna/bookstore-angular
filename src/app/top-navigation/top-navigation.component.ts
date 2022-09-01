@@ -12,9 +12,6 @@ interface NavigationData {
   templateUrl: './top-navigation.component.html',
   styleUrls: ['./top-navigation.component.sass'],
 })
-export class TopNavigationComponent implements OnInit {
+export class TopNavigationComponent {
   public data: NavigationData = data;
-  constructor() {}
-
-  ngOnInit(): void {}
 }
