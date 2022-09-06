@@ -1,0 +1,18 @@
+<fluent-card *ngFor="let data of data.item">
+  <img src="{{ data.imagePath }}" alt="{{ data.imageAltTag }}" />
+  <div>
+    <h2>
+      <a [title]="data.title + ' details'">
+        {{ data.title }}
+      </a>
+    </h2>
+    <p>{{ data.description }}</p>
+    <h5>{{ data.price }}</h5>
+  </div>
+  <fluent-button
+    appearance="outline"
+    (click)="onClick()"
+    [routerLink]="['/item', data.id]"
+    >View more</fluent-button
+  >
+</fluent-card>
