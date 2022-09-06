@@ -1,6 +1,34 @@
 {
-  "title": "Bookstore",
-  "cartIcon": "assets/icons/cart-icon.svg",
-  "menuIcon": "assets/icons/hamburger-icon.svg",
-  "text": "testing text"
+  "navigation": {
+    "title": "Bookstore",
+    "cartIcon": "assets/icons/cart-icon.svg",
+    "menuIcon": "assets/icons/hamburger-icon.svg",
+    "text": "testing text"
+  },
+  "item": [
+    {
+      "imagePath": "assets/images/scythe.jpg",
+      "imageAltTag": "Scythe book cover",
+      "description": "book 1 description",
+      "title": "Scythe",
+      "price": "20$",
+      "id": 1
+    },
+    {
+      "imagePath": "assets/images/thunderhead.jpg",
+      "imageAltTag": "Thunderhead book cover",
+      "description": "book 2 description",
+      "title": "thunderhead",
+      "price": "25$",
+      "id": 2
+    },
+    {
+      "imagePath": "assets/images/the toll.jpg",
+      "imageAltTag": "The toll book cover",
+      "description": "book 3 description",
+      "title": "The toll",
+      "price": "23$",
+      "id": 3
+    }
+  ]
 }
