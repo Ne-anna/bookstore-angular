@@ -5,7 +5,7 @@
     "menuIcon": "assets/icons/hamburger-icon.svg",
     "text": "testing text"
   },
-  "item": [
+  "book": [
     {
       "imagePath": "assets/images/scythe.jpg",
       "imageAltTag": "Scythe book cover",

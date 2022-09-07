@@ -1,4 +1,4 @@
-export interface ItemData {
+export interface BookData {
   imagePath: string;
   imageAltTag: string;
   description: string;
@@ -15,5 +15,5 @@ export interface NavigationData {
 
 export interface AllData {
   navigation: NavigationData;
-  item: ItemData[];
+  book: BookData[];
 }
