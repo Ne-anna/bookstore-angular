@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import ImageDataJson from '../data.json';
-import { AllData } from '../data';
+import { AllData, BookData } from '../data';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -8,11 +8,18 @@ import { AllData } from '../data';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent {
-  public data: AllData = ImageDataJson;
+  public book: BookData[] = [];
+  constructor(private bookService: BookService) {}
 
-  exampleTextField = 'click click';
+  getBooks(): void {
+    this.bookService.getBooks().subscribe((book) => (this.book = book));
+  }
+
+  ngOnInit(): void {
+    this.getBooks();
+  }
 
   onClick() {
-    console.log(this.exampleTextField);
+    console.log('you clicked');
   }
 }
