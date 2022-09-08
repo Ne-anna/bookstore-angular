@@ -3,7 +3,7 @@ export interface BookData {
   imageAltTag: string;
   description: string;
   title: string;
-  price: string;
+  price: number;
   id: number;
 }
 
