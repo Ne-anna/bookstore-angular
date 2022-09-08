@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { BookData } from '../data';
 import bookData from '../data.json';
 
@@ -13,5 +13,10 @@ export class BookService {
 
   getBooks(): Observable<BookData[]> {
     return this.http.get<BookData[]>(this.bookUrl);
+  }
+
+  getById(id: number): Observable<any> {
+    const url = `${this.bookUrl}/${id}`;
+    return this.http.get(url);
   }
 }
