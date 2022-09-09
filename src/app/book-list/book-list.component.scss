@@ -17,13 +17,18 @@ img {
   width: 100%;
 }
 
-div {
+fluent-description {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-h5 {
+fluent-title {
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+fluent-price {
   font-size: 3vh;
 }

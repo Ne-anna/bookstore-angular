@@ -1,22 +1,15 @@
-<fluent-card *ngFor="let book of book">
-  <img
-    src="{{ book.imagePath }}"
-    alt="{{ book.imageAltTag }}"
-    (click)="onClick()"
-    [routerLink]="['/book', book.id]"
-  />
-  <div>
-    <h2>
-      <a [title]="book.title + ' details'">
-        {{ book.title }}
-      </a>
-    </h2>
-    <h5>{{ book.price | currency }}</h5>
-  </div>
-  <fluent-button
-    appearance="outline"
-    (click)="onClick()"
-    [routerLink]="['/book', book.id]"
-    >View more</fluent-button
-  >
+<fluent-card
+  *ngFor="let book of book"
+  [title]="book.title + ' details'"
+  (click)="onClick()"
+  [routerLink]="['/book', book.id]"
+>
+  <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
+  <fluent-description>
+    <fluent-title>
+      {{ book.title }}
+    </fluent-title>
+    <fluent-price>{{ book.price | currency }}</fluent-price>
+  </fluent-description>
+  <fluent-button appearance="outline">View more</fluent-button>
 </fluent-card>
