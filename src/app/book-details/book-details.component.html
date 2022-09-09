@@ -1,3 +1,18 @@
-<div>
-  <p>product detail works</p>
-</div>
+<fluent-card *ngIf="book" [title]="book.title + ' details'">
+  <fluent-title>
+    {{ book.title }}
+  </fluent-title>
+  <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
+  <fluent-description>{{ book.description }}</fluent-description>
+  <fleunt-quantity>
+    <fluent-amount>
+      <fluent-amount-text>Amount:</fluent-amount-text>
+      <fluent-text-field value="1"></fluent-text-field>
+    </fluent-amount>
+
+    <fluent-price>{{ book.price | currency }}</fluent-price>
+  </fleunt-quantity>
+  <fluent-button appearance="outline">Add to cart</fluent-button>
+  <button [routerLink]="['']">Back</button>
+  <!-- button 'Back' is temporary -->
+</fluent-card>

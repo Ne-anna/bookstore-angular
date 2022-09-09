@@ -1,5 +1,55 @@
-div {
+fluent-card {
   display: flex;
-  margin: 15vh;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+}
+
+fluent-button {
+  background-color: #8cb979;
+  color: white;
+  border: none;
+}
+
+fluent-title {
+  display: flex;
   justify-content: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+img {
+  height: 70vh;
+  width: 100%;
+}
+
+fleunt-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+fluent-amount {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 3vh;
+}
+
+fluent-amount-text {
+  padding-top: 3vh;
+  margin: 0;
+  margin-bottom: 1vh;
+  font-size: small;
+}
+
+fluent-text-field {
+  width: 10vh;
+}
+
+fluent-price {
+  font-size: 3vh;
+  padding-bottom: 3vh;
 }
