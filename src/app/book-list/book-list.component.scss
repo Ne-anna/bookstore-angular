@@ -1,0 +1,34 @@
+fluent-card {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+}
+
+fluent-button {
+  background-color: #8cb979;
+  color: white;
+  border: none;
+}
+
+img {
+  height: 80vh;
+  width: 100%;
+}
+
+fluent-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+fluent-title {
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+fluent-price {
+  font-size: 3vh;
+}
