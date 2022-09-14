@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AllData, BookData } from '../../data';
+import { Component } from '@angular/core';
+import { BookData } from '../../data';
 import { BookService } from '../../services/book.service';
 
 @Component({
@@ -17,9 +17,5 @@ export class BookListComponent {
 
   ngOnInit(): void {
     this.getBooks();
-  }
-
-  onClick() {
-    console.log('you clicked');
   }
 }
