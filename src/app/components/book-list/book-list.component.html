@@ -1,7 +1,6 @@
 <fluent-card
   *ngFor="let book of book"
   [title]="book.title + ' details'"
-  (click)="onClick()"
   [routerLink]="['/book', book.id]"
 >
   <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
