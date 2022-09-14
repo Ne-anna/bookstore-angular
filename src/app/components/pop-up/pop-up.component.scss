@@ -1,0 +1,61 @@
+fluent-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: #000;
+  opacity: 0.75;
+}
+
+fluent-modal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 35vh;
+  z-index: 100;
+}
+
+fluent-modal-dialog {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20vh;
+  z-index: 100;
+  width: 40vh;
+  height: 35vh;
+  background-color: white;
+}
+
+fluent-button-container-x {
+  display: flex;
+  justify-content: flex-end;
+}
+
+fluent-button-x {
+  width: fit-content;
+}
+
+fluent-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+  padding-top: 6vh;
+}
+
+fluent-button {
+  height: 8vh;
+  border-radius: 0;
+  border: solid #000;
+  width: 32vh;
+}

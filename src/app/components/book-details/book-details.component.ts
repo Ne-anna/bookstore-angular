@@ -3,6 +3,8 @@ import { BookData } from '../../data';
 import { BookService } from '../../services/book.service';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'app-book-details',
@@ -14,12 +16,18 @@ export class BookDetailsComponent {
   constructor(
     private bookService: BookService,
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialogRef: MatDialog
   ) {}
+
+  openModal() {
+    this.dialogRef.open(PopUpComponent);
+    document.body.style.overflow = 'hidden';
+  }
 
   addToCart(book: BookData) {
     this.cartService.addToCart(book);
-    // window.alert('You have added product to the cart');
+    this.openModal();
   }
 
   getBooks(): void {

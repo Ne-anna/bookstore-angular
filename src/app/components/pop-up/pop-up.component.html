@@ -1,0 +1,17 @@
+<fluent-background (click)="closeModal()"></fluent-background>
+
+<fluent-modal>
+  <fluent-modal-dialog>
+    <fluent-button-container-x>
+      <fluent-button-x (click)="closeModal()"> X</fluent-button-x>
+    </fluent-button-container-x>
+    <fluent-button-container>
+      <fluent-button [routerLink]="['/cart']" (click)="closeModal()">
+        <strong> Go to Cart </strong>
+      </fluent-button>
+      <fluent-button [routerLink]="['']" (click)="closeModal()">
+        <strong> Continue shopping</strong>
+      </fluent-button>
+    </fluent-button-container>
+  </fluent-modal-dialog>
+</fluent-modal>
