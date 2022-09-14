@@ -1,0 +1,5 @@
+<fluent-card *ngFor="let book of book">
+  <fluent-title> {{ book.title }}</fluent-title>
+  <fluent-price>{{ book.price | currency }}</fluent-price>
+  <fluent-button>X</fluent-button>
+</fluent-card>
