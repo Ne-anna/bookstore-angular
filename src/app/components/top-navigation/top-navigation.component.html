@@ -1,7 +1,7 @@
 <fluent-nav>
   <fluent-title>{{ data.navigation.title }}</fluent-title>
   <div>
-    <button>
+    <button [routerLink]="['cart']">
       <img class="navigation__cart" src="{{ data.navigation.cartIcon }}" />
     </button>
     <button>

@@ -6,13 +6,13 @@
   <fluent-description>{{ book.description }}</fluent-description>
   <fleunt-quantity>
     <fluent-amount>
-      <fluent-amount-text>Amount:</fluent-amount-text>
+      <fluent-amount-text>{{ this.amountText }}</fluent-amount-text>
       <fluent-text-field value="1"></fluent-text-field>
     </fluent-amount>
 
     <fluent-price>{{ book.price | currency }}</fluent-price>
   </fleunt-quantity>
-  <fluent-button appearance="outline">Add to cart</fluent-button>
-  <button [routerLink]="['']">Back</button>
-  <!-- button 'Back' is temporary -->
+  <fluent-button appearance="outline" (click)="addToCart(book)">{{
+    this.addToCartText
+  }}</fluent-button>
 </fluent-card>

@@ -1,0 +1,19 @@
+<fluent-background (click)="closeModal()"></fluent-background>
+
+<fluent-modal>
+  <fluent-modal-dialog>
+    <fluent-button-container-x>
+      <fluent-button-x (click)="closeModal()">
+        <img src="{{ this.xIcon }}" />
+      </fluent-button-x>
+    </fluent-button-container-x>
+    <fluent-button-container>
+      <fluent-button [routerLink]="['/cart']" (click)="closeModal()">
+        <strong> {{ this.goToCartText }} </strong>
+      </fluent-button>
+      <fluent-button [routerLink]="['']" (click)="closeModal()">
+        <strong>{{ this.continueShoppingText }}</strong>
+      </fluent-button>
+    </fluent-button-container>
+  </fluent-modal-dialog>
+</fluent-modal>
