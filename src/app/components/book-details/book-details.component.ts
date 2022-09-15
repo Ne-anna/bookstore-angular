@@ -13,12 +13,17 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 })
 export class BookDetailsComponent {
   public book: BookData | undefined;
+  public amountText!: string;
+  public addToCartText!: string;
   constructor(
     private bookService: BookService,
     private cartService: CartService,
     private route: ActivatedRoute,
     private dialogRef: MatDialog
-  ) {}
+  ) {
+    this.amountText = 'Amount:';
+    this.addToCartText = 'Add to cart';
+  }
 
   openModal() {
     this.dialogRef.open(PopUpComponent);

@@ -9,7 +9,10 @@ import { BookService } from '../../services/book.service';
 })
 export class BookListComponent {
   public book: BookData[] = [];
-  constructor(private bookService: BookService) {}
+  public viewMoreText!: string;
+  constructor(private bookService: BookService) {
+    this.viewMoreText = 'View more';
+  }
 
   getBooks(): void {
     this.bookService.getBooks().subscribe((book) => (this.book = book));

@@ -7,7 +7,15 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./pop-up.component.scss'],
 })
 export class PopUpComponent {
-  constructor(private dialogRef: MatDialog) {}
+  public goToCartText!: string;
+  public continueShoppingText!: string;
+  public xIcon!: string;
+
+  constructor(private dialogRef: MatDialog) {
+    this.goToCartText = 'Go to Cart';
+    this.continueShoppingText = 'Continue shopping';
+    this.xIcon = 'assets/icons/close-icon.svg';
+  }
 
   closeModal() {
     if (this.dialogRef.open(PopUpComponent)) {
