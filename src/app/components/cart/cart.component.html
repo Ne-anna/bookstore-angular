@@ -1,5 +1,35 @@
-<fluent-card *ngFor="let book of book">
-  <fluent-title> {{ book.title }}</fluent-title>
-  <fluent-price>{{ book.price | currency }}</fluent-price>
-  <fluent-button>X</fluent-button>
-</fluent-card>
+<fluent-text-empty *ngIf="book.length == 0">{{
+  this.emptyText
+}}</fluent-text-empty>
+
+<fluent-carde *ngIf="book.length != 0">
+  <fluent-card *ngFor="let book of book">
+    <img src="{{ book.imagePath }}" />
+    <fluent-container>
+      <fluent-description-container>
+        <fluent-title> {{ book.title }}</fluent-title>
+        <fluent-price>{{ book.price | currency }}</fluent-price>
+      </fluent-description-container>
+
+      <fluent-description-container>
+        <fluent-button-x>
+          <img src="{{ this.xIcon }}" id="xIcon"
+        /></fluent-button-x>
+        <input type="number" min="1" max="10" value="1" />
+      </fluent-description-container>
+    </fluent-container>
+  </fluent-card>
+
+  <hr />
+
+  <fluent-checkout>
+    <fluent-title>Total cost:</fluent-title>
+    <fluent-price>
+      <strong> 195.50 </strong>
+    </fluent-price>
+
+    <fluent-button>
+      <p>Checkout</p>
+    </fluent-button>
+  </fluent-checkout>
+</fluent-carde>

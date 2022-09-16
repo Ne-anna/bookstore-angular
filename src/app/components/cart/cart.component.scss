@@ -1,7 +1,72 @@
+fluent-text-empty {
+  display: flex;
+  border: none;
+  padding-top: 20vh;
+  justify-content: center;
+  font-weight: bold;
+}
+
 fluent-card {
   display: flex;
+  flex-direction: row;
   margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
+  border: solid;
+  border-radius: revert;
+  padding: 1vh;
+}
+
+fluent-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+fluent-description-container {
+  display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  gap: 5vh;
+}
+
+fluent-button-x {
+  display: flex;
+  justify-content: flex-end;
+}
+
+fluent-price {
+  height: 6vh;
+}
+
+fluent-checkout {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  width: 95%;
+  height: 0.2vh;
+  background-color: #000;
+}
+
+input {
+  width: 10vh;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  padding-left: 10px;
+  opacity: 1000;
+}
+
+#xIcon {
+  width: 4vh;
+  height: 4vh;
+  padding-right: 0;
+}
+
+img {
+  width: 15vh;
+  height: 15vh;
+  padding-right: 2vh;
 }

@@ -7,7 +7,12 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
+  public xIcon!: string;
+  public emptyText!: string;
   book = this.cartService.getItems();
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {
+    this.xIcon = 'assets/icons/close-icon.svg';
+    this.emptyText = 'Cart is empty!';
+  }
 }
