@@ -45,11 +45,12 @@ fluent-amount-text {
   font-size: small;
 }
 
-fluent-text-field {
-  width: 10vh;
-}
-
 fluent-price {
   font-size: 3vh;
   padding-bottom: 3vh;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  padding-left: 10px;
+  opacity: 1000;
 }
