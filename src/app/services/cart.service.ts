@@ -7,16 +7,19 @@ import { BookData } from '../data';
 export class CartService {
   public item: BookData[] = [];
 
-  addToCart(product: BookData) {
-    this.item.push(product);
-  }
-
   getItems() {
     return this.item;
   }
 
-  clearCart() {
-    this.item = [];
-    return this.item;
+  addToCart(product: BookData) {
+    this.item.push(product);
+  }
+
+  removeCartItem(product: any) {
+    this.item.map((a: any, index: any) => {
+      if (product.id === a.id) {
+        this.item.splice(index, 1);
+      }
+    });
   }
 }
