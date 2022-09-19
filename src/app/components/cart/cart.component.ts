@@ -7,9 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent {
-  items: BookData[] = [];
-
+export class CartComponent implements OnInit {
   public xIcon!: string;
   public emptyText!: string;
 
@@ -22,5 +20,13 @@ export class CartComponent {
 
   removeCartItem(item: any) {
     this.cartService.removeCartItem(item);
+  }
+
+  cartTotal = 0;
+
+  ngOnInit() {
+    this.book.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
+    });
   }
 }

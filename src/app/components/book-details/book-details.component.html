@@ -7,7 +7,7 @@
   <fleunt-quantity>
     <fluent-amount>
       <fluent-amount-text>{{ this.amountText }}</fluent-amount-text>
-      <input type="number" min="1" max="10" value="1" />
+      <input type="number" min="1" max="10" [value]="book.quantity" />
     </fluent-amount>
     <fluent-price>{{ book.price | currency }}</fluent-price>
   </fleunt-quantity>

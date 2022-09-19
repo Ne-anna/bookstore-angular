@@ -5,6 +5,7 @@ export interface BookData {
   title: string;
   price: number;
   id: number;
+  quantity: number;
 }
 
 export interface NavigationData {

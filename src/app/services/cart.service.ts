@@ -12,7 +12,12 @@ export class CartService {
   }
 
   addToCart(product: BookData) {
-    this.item.push(product);
+    const exist = this.item.find((item) => {
+      return item.id === product.id;
+    });
+
+    if (exist) exist.quantity++;
+    else this.item.push(product);
   }
 
   removeCartItem(product: any) {
