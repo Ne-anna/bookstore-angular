@@ -3,7 +3,7 @@
 }}</fluent-text-empty>
 
 <fluent-carde *ngIf="book.length != 0">
-  <fluent-card *ngFor="let book of book">
+  <fluent-card *ngFor="let book of book; let i = index">
     <img src="{{ book.imagePath }}" />
     <fluent-container>
       <fluent-description-container>
@@ -15,7 +15,13 @@
         <fluent-button-x (click)="removeCartItem(book)">
           <img src="{{ this.xIcon }}" id="xIcon"
         /></fluent-button-x>
-        <input type="number" min="1" max="10" [value]="book.quantity" />
+        <input
+          type="number"
+          min="1"
+          max="10"
+          [value]="book.quantity"
+          (blur)="validateInput($event, i)"
+        />
       </fluent-description-container>
     </fluent-container>
   </fluent-card>

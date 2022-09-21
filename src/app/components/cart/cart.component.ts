@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
   public emptyText!: string;
 
   book = this.cartService.getItems();
+  cartTotal = 0;
 
   constructor(private cartService: CartService) {
     this.xIcon = 'assets/icons/close-icon.svg';
@@ -22,7 +23,19 @@ export class CartComponent implements OnInit {
     this.cartService.removeCartItem(item);
   }
 
-  cartTotal = 0;
+  validateInput(event: any, i: number) {
+    const quantity = +event.target.value;
+    if (quantity < 1 || quantity > 10) {
+      event.target.value = this.book[i].quantity;
+      return;
+    }
+    this.quantityUpdate(quantity, i);
+  }
+
+  quantityUpdate(quantity: number, i: number) {
+    this.book[i].quantity = quantity;
+    this.cartService.getItems();
+  }
 
   ngOnInit() {
     this.book.forEach((item) => {
