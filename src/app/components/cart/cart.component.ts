@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   public xIcon!: string;
   public emptyText!: string;
+  // public inputValue!: any;
 
   book = this.cartService.getItems();
   cartTotal = 0;
@@ -37,9 +38,17 @@ export class CartComponent implements OnInit {
     this.cartService.getItems();
   }
 
+  value: any;
+
   ngOnInit() {
     this.book.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
+    // this.cartService.$isValuePassed.subscribe((data) => {
+    //   this.inputValue = data;
+    //   console.log('Here we should display it', this.inputValue);
+    // });
+
+    this.cartService.currentValue.subscribe((value) => (this.value = value));
   }
 }

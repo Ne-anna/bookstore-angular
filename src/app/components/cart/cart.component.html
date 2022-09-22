@@ -19,7 +19,8 @@
           type="number"
           min="1"
           max="10"
-          [value]="book.quantity"
+          #input
+          [value]="this.value"
           (blur)="validateInput($event, i)"
         />
       </fluent-description-container>

@@ -12,12 +12,13 @@
         min="1"
         max="10"
         [value]="book.quantity"
-        (blur)="validateInput($event)"
+        (click)="validateInput($event)"
+        #input
       />
     </fluent-amount>
     <fluent-price>{{ book.price | currency }}</fluent-price>
   </fleunt-quantity>
-  <fluent-button appearance="outline" (click)="addToCart(book)">{{
+  <fluent-button appearance="outline" (click)="addToCart(book, input.value)">{{
     this.addToCartText
   }}</fluent-button>
 </fluent-card>

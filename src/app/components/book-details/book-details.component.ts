@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BookData } from '../../data';
 import { BookService } from '../../services/book.service';
 import { CartService } from '../../services/cart.service';
@@ -32,9 +32,11 @@ export class BookDetailsComponent {
     document.body.style.overflow = 'hidden';
   }
 
-  addToCart(book: BookData) {
+  addToCart(book: BookData, value: any) {
     this.cartService.addToCart(book);
     this.openModal();
+    // this.cartService.passValue(value);
+    this.cartService.changeValue(value);
   }
 
   getBooks(): void {
@@ -48,12 +50,6 @@ export class BookDetailsComponent {
       event.target.value = 1;
       return;
     }
-    this.quantityUpdate(quantity);
-  }
-
-  quantityUpdate(quantity: number) {
-    this.bookItem[1].quantity = quantity;
-    this.cartService.getItems();
   }
 
   ngOnInit(): void {
