@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BookData } from 'src/app/data';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -10,10 +9,11 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   public xIcon!: string;
   public emptyText!: string;
-  // public inputValue!: any;
 
   book = this.cartService.getItems();
   cartTotal = 0;
+
+  inputValue: any;
 
   constructor(private cartService: CartService) {
     this.xIcon = 'assets/icons/close-icon.svg';
@@ -24,31 +24,30 @@ export class CartComponent implements OnInit {
     this.cartService.removeCartItem(item);
   }
 
-  validateInput(event: any, i: number) {
+  validateInput(event: any) {
     const quantity = +event.target.value;
     if (quantity < 1 || quantity > 10) {
-      event.target.value = this.book[i].quantity;
+      event.target.value = this.inputValue;
+    } else {
+      event.target.value;
       return;
     }
-    this.quantityUpdate(quantity, i);
   }
 
-  quantityUpdate(quantity: number, i: number) {
-    this.book[i].quantity = quantity;
-    this.cartService.getItems();
-  }
-
-  value: any;
+  // updateCartTotal() {
+  //   this.book.forEach((item) => {
+  //     if (this.inputValue++) {
+  //       this.cartTotal = this.inputValue * item.price;
+  //     }
+  //   });
+  // }
 
   ngOnInit() {
+    this.cartService.currentValue.subscribe(
+      (value) => (this.inputValue = value)
+    );
     this.book.forEach((item) => {
-      this.cartTotal += item.quantity * item.price;
+      this.cartTotal = this.inputValue * item.price;
     });
-    // this.cartService.$isValuePassed.subscribe((data) => {
-    //   this.inputValue = data;
-    //   console.log('Here we should display it', this.inputValue);
-    // });
-
-    this.cartService.currentValue.subscribe((value) => (this.value = value));
   }
 }

@@ -35,7 +35,6 @@ export class BookDetailsComponent {
   addToCart(book: BookData, value: any) {
     this.cartService.addToCart(book);
     this.openModal();
-    // this.cartService.passValue(value);
     this.cartService.changeValue(value);
   }
 

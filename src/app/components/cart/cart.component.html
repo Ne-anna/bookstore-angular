@@ -3,7 +3,7 @@
 }}</fluent-text-empty>
 
 <fluent-carde *ngIf="book.length != 0">
-  <fluent-card *ngFor="let book of book; let i = index">
+  <fluent-card *ngFor="let book of book">
     <img src="{{ book.imagePath }}" />
     <fluent-container>
       <fluent-description-container>
@@ -20,8 +20,8 @@
           min="1"
           max="10"
           #input
-          [value]="this.value"
-          (blur)="validateInput($event, i)"
+          [value]="this.inputValue"
+          (blur)="validateInput($event)"
         />
       </fluent-description-container>
     </fluent-container>
