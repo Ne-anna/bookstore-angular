@@ -32,10 +32,10 @@ export class BookDetailsComponent {
     document.body.style.overflow = 'hidden';
   }
 
-  addToCart(book: BookData, value: any) {
-    this.cartService.addToCart(book);
+  addToCart(book: BookData, quantity: string) {
+    this.cartService.addToCart(book, Number(quantity));
     this.openModal();
-    this.cartService.changeValue(value);
+    this.cartService.changeValue(Number(quantity));
   }
 
   getBooks(): void {

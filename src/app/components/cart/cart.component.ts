@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { BookData } from 'src/app/data';
+import { BookService } from 'src/app/services/book.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -11,9 +14,6 @@ export class CartComponent implements OnInit {
   public emptyText!: string;
 
   book = this.cartService.getItems();
-  cartTotal = 0;
-
-  inputValue: any;
 
   constructor(private cartService: CartService) {
     this.xIcon = 'assets/icons/close-icon.svg';
@@ -34,20 +34,12 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // updateCartTotal() {
-  //   this.book.forEach((item) => {
-  //     if (this.inputValue++) {
-  //       this.cartTotal = this.inputValue * item.price;
-  //     }
-  //   });
-  // }
+  public inputValue = new BehaviorSubject<any>('');
+  someValue = this.inputValue.asObservable();
 
   ngOnInit() {
-    this.cartService.currentValue.subscribe(
-      (value) => (this.inputValue = value)
-    );
-    this.book.forEach((item) => {
-      this.cartTotal = this.inputValue * item.price;
+    this.cartService.currentValue.subscribe((quantity) => {
+      this.inputValue.next(quantity);
     });
   }
 }
