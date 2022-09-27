@@ -8,7 +8,7 @@
     <fluent-container>
       <fluent-description-container>
         <fluent-title> {{ book.title }}</fluent-title>
-        <fluent-price>{{ book.price | currency }}</fluent-price>
+        <fluent-price>{{ book.price | currency: "EUR":true }}</fluent-price>
       </fluent-description-container>
 
       <fluent-description-container>
@@ -29,9 +29,11 @@
   <hr />
 
   <fluent-checkout>
-    <fluent-title>Total cost:</fluent-title>
+    <fluent-title>
+      <strong> Total cost: </strong>
+    </fluent-title>
     <fluent-price>
-      <!-- <strong> {{ cartTotal2 }} </strong> -->
+      <strong> {{ totalCost | currency: "EUR":true }} </strong>
     </fluent-price>
 
     <fluent-button>

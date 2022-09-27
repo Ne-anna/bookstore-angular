@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { BookData } from 'src/app/data';
-import { BookService } from 'src/app/services/book.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -15,6 +13,9 @@ export class CartComponent implements OnInit {
 
   book = this.cartService.getItems();
 
+  public inputValue = new BehaviorSubject<any>('');
+  someValue = this.inputValue.asObservable();
+
   constructor(private cartService: CartService) {
     this.xIcon = 'assets/icons/close-icon.svg';
     this.emptyText = 'Cart is empty!';
@@ -22,6 +23,7 @@ export class CartComponent implements OnInit {
 
   removeCartItem(item: any) {
     this.cartService.removeCartItem(item);
+    this.updateTotal();
   }
 
   validateInput(event: any) {
@@ -34,12 +36,20 @@ export class CartComponent implements OnInit {
     }
   }
 
-  public inputValue = new BehaviorSubject<any>('');
-  someValue = this.inputValue.asObservable();
+  totalCost!: number;
+
+  updateTotal() {
+    let cartTotal = 0;
+    this.book.forEach((item) => {
+      cartTotal += item.price * item.quantity;
+    });
+    return (this.totalCost = cartTotal);
+  }
 
   ngOnInit() {
     this.cartService.currentValue.subscribe((quantity) => {
       this.inputValue.next(quantity);
     });
+    this.updateTotal();
   }
 }

@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { BookData } from '../data';
 
@@ -7,7 +7,6 @@ import { BookData } from '../data';
 })
 export class CartService {
   public item: BookData[] = [];
-  cartTotal: number = 0;
 
   private valueSource = new BehaviorSubject<any>('');
   currentValue = this.valueSource.asObservable();
@@ -21,16 +20,12 @@ export class CartService {
       return item.id === product.id;
     });
 
-    if (exist) exist.quantity += quantity;
-    else this.item.push({ ...product, quantity });
-    this.updateTotal(quantity);
-  }
-
-  updateTotal(quantity: number) {
-    this.item.forEach((item) => {
-      this.cartTotal = item.price * quantity;
-      console.log(this.cartTotal);
-    });
+    if (exist) {
+      exist.quantity += quantity;
+      // if ((exist.quantity += quantity) > 10) {
+      //   window.alert("Pls don't add more");
+      // }
+    } else this.item.push({ ...product, quantity });
   }
 
   changeValue(quantity: number) {
