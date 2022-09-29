@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   book = this.cartService.getItems();
 
-  public inputValue = new BehaviorSubject<any>('');
+  public inputValue = new BehaviorSubject<number>(0);
   someValue = this.inputValue.asObservable();
 
   constructor(private cartService: CartService) {
@@ -22,21 +22,15 @@ export class CartComponent implements OnInit {
     this.emptyText = 'Cart is empty!';
   }
 
-  removeCartItem(item: any) {
+  removeCartItem(item: BookData) {
     this.cartService.removeCartItem(item);
     this.updateTotal();
   }
 
-  validateInput(event: any, changedQuantity: string, book: BookData) {
-    this.cartService.addToCart(book, Number(changedQuantity));
-    this.cartService.changeValue(Number(changedQuantity));
-    const quantityy = book.quantity;
-    if (quantityy < 1 || quantityy > 10) {
-      event.target.value = this.inputValue;
-      this.updateTotal();
-    } else {
-      event.target.value;
-      return;
+  validateInput(changeQuantity: string, book: BookData) {
+    book.quantity = parseInt(changeQuantity);
+    if (book.quantity > 10 || book.quantity < 1) {
+      book.quantity = 1;
     }
   }
 
@@ -51,9 +45,9 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.cartService.currentValue.subscribe((quantity) => {
-    //   this.inputValue.next(quantity);
-    // });
+    this.cartService.currentValue.subscribe((quantity) => {
+      this.inputValue.next(quantity);
+    });
     this.updateTotal();
   }
 }

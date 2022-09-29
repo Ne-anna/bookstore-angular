@@ -21,7 +21,7 @@
           max="10"
           #input
           [value]="book.quantity"
-          (click)="validateInput($event, input.value, book)"
+          (blur)="validateInput(input.value, book)"
         />
       </fluent-description-container>
     </fluent-container>

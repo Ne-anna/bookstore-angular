@@ -43,10 +43,11 @@ export class BookDetailsComponent {
     this.bookService.getById(bookId).subscribe((book) => (this.book = book));
   }
 
-  validateInput(event: any) {
+  validateInput(event: Event): void {
+    if (!(event.target instanceof HTMLInputElement)) return;
     const quantity = +event.target.value;
     if (quantity < 1 || quantity > 10) {
-      event.target.value = 1;
+      event.target.value = String(1);
       return;
     }
   }

@@ -8,7 +8,7 @@ import { BookData } from '../data';
 export class CartService {
   public item: BookData[] = [];
 
-  private valueSource = new BehaviorSubject<any>('');
+  private valueSource = new BehaviorSubject<number>(0);
   currentValue = this.valueSource.asObservable();
 
   getItems() {
@@ -22,9 +22,12 @@ export class CartService {
 
     if (exist) {
       exist.quantity += quantity;
-      // if ((exist.quantity += quantity) > 10) {
-      //   window.alert("Pls don't add more");
-      // }
+      if (exist.quantity >= 11) {
+        exist.quantity = 10;
+        window.alert(
+          'If you trying to buy MORE than 10 books, only 10 books will be added to your cart.'
+        );
+      }
     } else this.item.push({ ...product, quantity });
   }
 
@@ -32,8 +35,8 @@ export class CartService {
     this.valueSource.next(quantity);
   }
 
-  removeCartItem(product: any): void {
-    this.item.map((a: any, index: number) => {
+  removeCartItem(product: BookData): void {
+    this.item.map((a: BookData, index: number) => {
       if (product.id === a.id) {
         this.item.splice(index, 1);
       }
