@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { BookData } from 'src/app/data';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -26,10 +27,13 @@ export class CartComponent implements OnInit {
     this.updateTotal();
   }
 
-  validateInput(event: any) {
-    const quantity = +event.target.value;
-    if (quantity < 1 || quantity > 10) {
+  validateInput(event: any, changedQuantity: string, book: BookData) {
+    this.cartService.addToCart(book, Number(changedQuantity));
+    this.cartService.changeValue(Number(changedQuantity));
+    const quantityy = book.quantity;
+    if (quantityy < 1 || quantityy > 10) {
       event.target.value = this.inputValue;
+      this.updateTotal();
     } else {
       event.target.value;
       return;
@@ -47,9 +51,9 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cartService.currentValue.subscribe((quantity) => {
-      this.inputValue.next(quantity);
-    });
+    // this.cartService.currentValue.subscribe((quantity) => {
+    //   this.inputValue.next(quantity);
+    // });
     this.updateTotal();
   }
 }

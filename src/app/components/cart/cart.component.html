@@ -5,10 +5,10 @@
 <fluent-carde *ngIf="book.length != 0">
   <fluent-card *ngFor="let book of book">
     <img src="{{ book.imagePath }}" />
-    <fluent-container>
+    <fluent-container (click)="updateTotal()">
       <fluent-description-container>
         <fluent-title> {{ book.title }}</fluent-title>
-        <fluent-price>{{ book.price | currency: "EUR":true }}</fluent-price>
+        <fluent-price>{{ book.price | currency: "EUR" }}</fluent-price>
       </fluent-description-container>
 
       <fluent-description-container>
@@ -21,7 +21,7 @@
           max="10"
           #input
           [value]="book.quantity"
-          (blur)="validateInput($event)"
+          (click)="validateInput($event, input.value, book)"
         />
       </fluent-description-container>
     </fluent-container>
@@ -33,7 +33,7 @@
       <strong> Total cost: </strong>
     </fluent-title>
     <fluent-price>
-      <strong> {{ totalCost | currency: "EUR":true }} </strong>
+      <strong> {{ totalCost | currency: "EUR" }}</strong>
     </fluent-price>
 
     <fluent-button>
