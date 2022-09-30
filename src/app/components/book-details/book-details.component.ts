@@ -15,7 +15,7 @@ export class BookDetailsComponent {
   public book: BookData | undefined;
   public amountText!: string;
   public addToCartText!: string;
-  bookItem = this.cartService.getItems();
+  public bookItem = this.cartService.getItems();
 
   constructor(
     private bookService: BookService,
@@ -27,23 +27,18 @@ export class BookDetailsComponent {
     this.addToCartText = 'Add to cart';
   }
 
-  openModal() {
+  public openModal() {
     this.dialogRef.open(PopUpComponent);
     document.body.style.overflow = 'hidden';
   }
 
-  addToCart(book: BookData, quantity: string) {
+  public addToCart(book: BookData, quantity: string) {
     this.cartService.addToCart(book, Number(quantity));
     this.openModal();
     this.cartService.changeValue(Number(quantity));
   }
 
-  getBooks(): void {
-    let bookId = parseInt(this.route.snapshot.params['id']);
-    this.bookService.getById(bookId).subscribe((book) => (this.book = book));
-  }
-
-  validateInput(event: Event): void {
+  public validateInput(event: Event): void {
     if (!(event.target instanceof HTMLInputElement)) return;
     const quantity = +event.target.value;
     if (quantity < 1 || quantity > 10) {
@@ -53,6 +48,7 @@ export class BookDetailsComponent {
   }
 
   ngOnInit(): void {
-    this.getBooks();
+    let bookId = parseInt(this.route.snapshot.params['id']);
+    this.bookService.getById(bookId).subscribe((book) => (this.book = book));
   }
 }

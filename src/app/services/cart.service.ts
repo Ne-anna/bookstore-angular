@@ -6,17 +6,17 @@ import { BookData } from '../data';
   providedIn: 'root',
 })
 export class CartService {
-  public item: BookData[] = [];
+  public items: BookData[] = [];
 
   private valueSource = new BehaviorSubject<number>(0);
   currentValue = this.valueSource.asObservable();
 
   getItems() {
-    return this.item;
+    return this.items;
   }
 
   addToCart(product: BookData, quantity: number) {
-    const exist = this.item.find((item) => {
+    const exist = this.items.find((item) => {
       return item.id === product.id;
     });
 
@@ -28,7 +28,7 @@ export class CartService {
           'If you trying to buy MORE than 10 books, only 10 books will be added to your cart.'
         );
       }
-    } else this.item.push({ ...product, quantity });
+    } else this.items.push({ ...product, quantity });
   }
 
   changeValue(quantity: number) {
@@ -36,9 +36,9 @@ export class CartService {
   }
 
   removeCartItem(product: BookData): void {
-    this.item.map((a: BookData, index: number) => {
-      if (product.id === a.id) {
-        this.item.splice(index, 1);
+    this.items.map((book: BookData, index: number) => {
+      if (product.id === book.id) {
+        this.items.splice(index, 1);
       }
     });
   }

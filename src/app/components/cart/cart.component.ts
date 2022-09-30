@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   public xIcon!: string;
   public emptyText!: string;
 
-  book = this.cartService.getItems();
+  public book = this.cartService.getItems();
 
   public inputValue = new BehaviorSubject<number>(0);
   someValue = this.inputValue.asObservable();
@@ -22,21 +22,23 @@ export class CartComponent implements OnInit {
     this.emptyText = 'Cart is empty!';
   }
 
-  removeCartItem(item: BookData) {
+  public removeCartItem(item: BookData) {
     this.cartService.removeCartItem(item);
     this.updateTotal();
   }
 
-  validateInput(changeQuantity: string, book: BookData) {
-    book.quantity = parseInt(changeQuantity);
-    if (book.quantity > 10 || book.quantity < 1) {
-      book.quantity = 1;
-    }
+  public validateInput(event: Event, changeQuantity: string, book: BookData) {
+    if (!(event.target instanceof HTMLInputElement)) return;
+    const quantity = +event.target.value;
+    if (quantity < 1 || quantity > 10) {
+      event.target.value = String(book.quantity);
+    } else book.quantity = parseInt(changeQuantity);
+    console.log(book.quantity);
   }
 
   totalCost!: number;
 
-  updateTotal() {
+  public updateTotal() {
     let cartTotal = 0;
     this.book.forEach((item) => {
       cartTotal += item.price * item.quantity;
