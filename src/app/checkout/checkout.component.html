@@ -1,0 +1,52 @@
+<div>
+  <fluent-card *ngFor="let book of book">
+    <img src="{{ book.imagePath }}" />
+    <fluent-container>
+      <fluent-description-container>
+        <fluent-title> {{ book.title }}</fluent-title>
+        <fluent-price>{{ book.price | currency: "EUR" }}</fluent-price>
+      </fluent-description-container>
+    </fluent-container>
+  </fluent-card>
+</div>
+
+<fluent-checkout-form>
+  <form [formGroup]="checkOutForm" (ngSubmit)="collectData()">
+    <fluent-checkout-container>
+      <hr />
+      <input
+        formControlName="email"
+        class="email"
+        type="text"
+        name="email"
+        placeholder="email: "
+      />
+      <fluent-error class="error" *ngIf="email?.invalid && email?.touched">{{
+        this.emailErrorMessage
+      }}</fluent-error>
+      <input
+        formControlName="confirmemail"
+        class="email"
+        type="text"
+        name="confirmemail"
+        placeholder="confirm email: "
+      />
+      <fluent-error class="error" *ngIf="email?.value != confirmemail?.value">{{
+        this.confirmationErrorMessage
+      }}</fluent-error>
+      <input
+        formControlName="namesurname"
+        class="email"
+        type="text"
+        name="namesurname"
+        placeholder="Name / surname: "
+      />
+      <fluent-error
+        class="error"
+        *ngIf="namesurname?.invalid && namesurname?.touched"
+        >{{ this.nameSurnameMessage }}</fluent-error
+      >
+      <button [disabled]="checkOutForm.invalid">Order</button>
+    </fluent-checkout-container>
+  </form>
+</fluent-checkout-form>

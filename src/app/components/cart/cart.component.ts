@@ -11,15 +11,19 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   public xIcon!: string;
   public emptyText!: string;
+  public checkout!: string;
 
   public book = this.cartService.getItems();
 
   public inputValue = new BehaviorSubject<number>(0);
   someValue = this.inputValue.asObservable();
 
+  totalCost!: number;
+
   constructor(private cartService: CartService) {
     this.xIcon = 'assets/icons/close-icon.svg';
     this.emptyText = 'Cart is empty!';
+    this.checkout = 'Checkout';
   }
 
   public removeCartItem(item: BookData) {
@@ -35,8 +39,6 @@ export class CartComponent implements OnInit {
     } else book.quantity = parseInt(changeQuantity);
     console.log(book.quantity);
   }
-
-  totalCost!: number;
 
   public updateTotal() {
     let cartTotal = 0;

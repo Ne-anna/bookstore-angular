@@ -36,8 +36,8 @@
       <strong> {{ totalCost | currency: "EUR" }}</strong>
     </fluent-price>
 
-    <fluent-button>
-      <p>Checkout</p>
-    </fluent-button>
+    <fluent-checkout-button [routerLink]="['/checkout']">
+      <p>{{ this.checkout }}</p>
+    </fluent-checkout-button>
   </fluent-checkout>
 </fluent-carde>

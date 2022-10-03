@@ -15,12 +15,15 @@ import { BookDetailsComponent } from '../app/components/book-details/book-detail
 import { CartComponent } from './components/cart/cart.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import {
   MatDialogModule,
   MAT_DIALOG_DEFAULT_OPTIONS,
 } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckoutComponent } from './checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookDetailsComponent,
     CartComponent,
     PopUpComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     MatDialogModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
