@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { BookData } from 'src/app/data';
 import { CartService } from 'src/app/services/cart.service';
@@ -27,21 +27,22 @@ export class CartComponent implements OnInit {
     this.checkout = 'Checkout';
   }
 
-  inputValueTest = new FormControl('', [
-    Validators.required,
-    Validators.pattern('input.value > 10'),
-  ]);
-
   public removeCartItem(item: BookData) {
     this.cartService.removeCartItem(item);
     this.updateTotal();
   }
+
+  inputValueTest: any;
 
   public validateInput(event: Event, changeQuantity: string, book: BookData) {
     if (!(event.target instanceof HTMLInputElement)) return;
     const quantity = +event.target.value;
     if (quantity < 1 || quantity > 10) {
       event.target.value = String(book.quantity);
+      this.inputValueTest = new FormControl(book.quantity, [
+        Validators.required,
+        Validators.pattern('input.value > 10'),
+      ]);
     } else book.quantity = parseInt(changeQuantity);
     console.log(book.quantity);
   }

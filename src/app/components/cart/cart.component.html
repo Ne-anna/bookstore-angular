@@ -21,7 +21,7 @@
           max="10"
           #input
           [value]="book.quantity"
-          formControlName="inputValueTest"
+          [formControl]="inputValueTest"
           (blur)="validateInput($event, input.value, book)"
         />
       </fluent-description-container>
