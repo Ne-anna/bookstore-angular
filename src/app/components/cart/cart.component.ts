@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { BookData } from 'src/app/data';
 import { CartService } from 'src/app/services/cart.service';
@@ -25,6 +26,11 @@ export class CartComponent implements OnInit {
     this.emptyText = 'Cart is empty!';
     this.checkout = 'Checkout';
   }
+
+  inputValueTest = new FormControl('', [
+    Validators.required,
+    Validators.pattern('input.value > 10'),
+  ]);
 
   public removeCartItem(item: BookData) {
     this.cartService.removeCartItem(item);
