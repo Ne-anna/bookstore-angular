@@ -24,6 +24,7 @@ import {
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     PopUpComponent,
     CheckoutComponent,
+    OrderDialogComponent,
   ],
   imports: [
     BrowserModule,

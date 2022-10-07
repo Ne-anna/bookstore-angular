@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -16,7 +18,7 @@ export class CheckoutComponent implements OnInit {
 
   totalCost!: number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private dialogRef: MatDialog) {
     this.emailErrorMessage = 'E-mail is not valid';
     this.confirmationErrorMessage = "E-mail doesn't match";
     this.nameSurnameMessage = 'Enter correct name or surname';
@@ -49,8 +51,14 @@ export class CheckoutComponent implements OnInit {
     return this.checkOutForm.get('namesurname');
   }
 
+  public openModal() {
+    this.dialogRef.open(OrderDialogComponent);
+    document.body.style.overflow = 'hidden';
+  }
+
   collectData() {
     this.cartService.removeAll();
+    this.openModal();
     console.log(this.checkOutForm.value);
     console.log(this.book);
   }
