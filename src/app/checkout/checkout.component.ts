@@ -14,6 +14,8 @@ export class CheckoutComponent implements OnInit {
 
   public book = this.cartService.getItems();
 
+  totalCost!: number;
+
   constructor(private cartService: CartService) {
     this.emailErrorMessage = 'E-mail is not valid';
     this.confirmationErrorMessage = "E-mail doesn't match";
@@ -48,10 +50,20 @@ export class CheckoutComponent implements OnInit {
   }
 
   collectData() {
+    this.cartService.removeAll();
     console.log(this.checkOutForm.value);
     console.log(this.book);
   }
-  totalCost!: number;
 
-  ngOnInit(): void {}
+  public updateTotal() {
+    let cartTotal = 0;
+    this.book.forEach((item) => {
+      cartTotal += item.price * item.quantity;
+    });
+    return (this.totalCost = cartTotal);
+  }
+
+  ngOnInit(): void {
+    this.updateTotal();
+  }
 }

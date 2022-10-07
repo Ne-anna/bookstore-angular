@@ -42,4 +42,8 @@ export class CartService {
       }
     });
   }
+
+  removeAll() {
+    return (this.items = []);
+  }
 }

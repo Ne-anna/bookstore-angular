@@ -10,6 +10,13 @@
   </fluent-card>
 </div>
 
+<fluent-checkout>
+  <fluent-title>
+    <p>Total cost: &nbsp;</p>
+  </fluent-title>
+  <strong> {{ totalCost | currency: "EUR" }}</strong>
+</fluent-checkout>
+
 <fluent-checkout-form>
   <form [formGroup]="checkOutForm" (ngSubmit)="collectData()">
     <fluent-checkout-container>
@@ -46,7 +53,12 @@
         *ngIf="namesurname?.invalid && namesurname?.touched"
         >{{ this.nameSurnameMessage }}</fluent-error
       >
-      <button [disabled]="checkOutForm.invalid">Order</button>
+      <fluent-button
+        type="submit"
+        appearance="outline"
+        [disabled]="checkOutForm.invalid"
+        >Order</fluent-button
+      >
     </fluent-checkout-container>
   </form>
 </fluent-checkout-form>
