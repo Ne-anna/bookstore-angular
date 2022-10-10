@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',

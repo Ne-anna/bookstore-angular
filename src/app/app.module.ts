@@ -23,8 +23,8 @@ import {
 } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderDialogComponent } from './order-dialog/order-dialog.component';
+import { CheckoutComponent } from '../app/components/checkout/checkout.component';
+import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
