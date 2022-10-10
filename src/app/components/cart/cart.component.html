@@ -21,13 +21,10 @@
           max="10"
           #input
           [value]="book.quantity"
-          [formControl]="inputValueTest"
+          onkeydown="return false"
           (blur)="validateInput($event, input.value, book)"
         />
       </fluent-description-container>
-      <fluent-error *ngIf="+input.value > 10"
-        >You can't add more then 10 books</fluent-error
-      >
     </fluent-container>
   </fluent-card>
   <hr />

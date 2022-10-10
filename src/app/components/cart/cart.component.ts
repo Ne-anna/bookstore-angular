@@ -32,17 +32,11 @@ export class CartComponent implements OnInit {
     this.updateTotal();
   }
 
-  inputValueTest: any;
-
   public validateInput(event: Event, changeQuantity: string, book: BookData) {
     if (!(event.target instanceof HTMLInputElement)) return;
     const quantity = +event.target.value;
     if (quantity < 1 || quantity > 10) {
       event.target.value = String(book.quantity);
-      this.inputValueTest = new FormControl(book.quantity, [
-        Validators.required,
-        Validators.pattern('input.value > 10'),
-      ]);
     } else book.quantity = parseInt(changeQuantity);
     console.log(book.quantity);
   }
