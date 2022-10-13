@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { CartService } from '../../services/cart.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,7 +19,11 @@ export class CheckoutComponent implements OnInit {
 
   totalCost!: number;
 
-  constructor(private cartService: CartService, private dialogRef: MatDialog) {
+  constructor(
+    private cartService: CartService,
+    private orderService: OrdersService,
+    private dialogRef: MatDialog
+  ) {
     this.emailErrorMessage = 'E-mail is not valid';
     this.confirmationErrorMessage = "E-mail doesn't match";
     this.nameSurnameMessage = 'Enter correct name or surname';
@@ -39,16 +44,8 @@ export class CheckoutComponent implements OnInit {
     ]),
   });
 
-  get email() {
-    return this.checkOutForm.get('email');
-  }
-
-  get confirmemail() {
-    return this.checkOutForm.get('confirmemail');
-  }
-
-  get namesurname() {
-    return this.checkOutForm.get('namesurname');
+  get getAllData() {
+    return this.checkOutForm.controls;
   }
 
   public openModal() {
@@ -57,21 +54,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   collectData() {
-    this.cartService.removeAll();
+    this.orderService.addOrderToFile();
+    this.orderService.getOrderData();
+    // this.cartService.removeAll();
     this.openModal();
-    console.log(this.checkOutForm.value);
-    console.log(this.book);
   }
 
-  public updateTotal() {
+  ngOnInit() {
     let cartTotal = 0;
     this.book.forEach((item) => {
       cartTotal += item.price * item.quantity;
     });
     return (this.totalCost = cartTotal);
-  }
-
-  ngOnInit(): void {
-    this.updateTotal();
   }
 }

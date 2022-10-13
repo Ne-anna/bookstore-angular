@@ -28,9 +28,11 @@
         name="email"
         placeholder="email: "
       />
-      <fluent-error class="error" *ngIf="email?.invalid && email?.touched">{{
-        this.emailErrorMessage
-      }}</fluent-error>
+      <fluent-error
+        class="error"
+        *ngIf="getAllData['email'].invalid && getAllData['email'].touched"
+        >{{ this.emailErrorMessage }}</fluent-error
+      >
       <input
         formControlName="confirmemail"
         class="email"
@@ -38,9 +40,11 @@
         name="confirmemail"
         placeholder="confirm email: "
       />
-      <fluent-error class="error" *ngIf="email?.value != confirmemail?.value">{{
-        this.confirmationErrorMessage
-      }}</fluent-error>
+      <fluent-error
+        class="error"
+        *ngIf="getAllData['email'].value != getAllData['confirmemail'].value"
+        >{{ this.confirmationErrorMessage }}</fluent-error
+      >
       <input
         formControlName="namesurname"
         class="email"
@@ -50,13 +54,18 @@
       />
       <fluent-error
         class="error"
-        *ngIf="namesurname?.invalid && namesurname?.touched"
+        *ngIf="
+          getAllData['namesurname'].invalid && getAllData['namesurname'].touched
+        "
         >{{ this.nameSurnameMessage }}</fluent-error
       >
       <fluent-button
         type="submit"
         appearance="outline"
-        [disabled]="checkOutForm.invalid"
+        [disabled]="
+          checkOutForm.invalid ||
+          getAllData['email'].value != getAllData['confirmemail'].value
+        "
         >Order</fluent-button
       >
     </fluent-checkout-container>
