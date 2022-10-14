@@ -11,10 +11,11 @@ fluent-card {
   flex-direction: row;
   margin: 82px auto 32px;
   padding: 0 16px;
-  max-width: 960px;
   border: solid;
   border-radius: revert;
   padding: 1vh;
+  width: 95vw;
+  align-self: center;
 }
 
 fluent-container {
@@ -35,13 +36,29 @@ fluent-button-x {
   justify-content: flex-end;
 }
 
+fluent-title {
+  margin-left: 2vw;
+}
+
 fluent-price {
   height: 6vh;
+  margin-left: 2vw;
 }
 
 fluent-checkout {
   display: flex;
   flex-direction: column;
+}
+
+fluent-checkout-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #8cb979;
+  color: white;
+  border: none;
+  width: 95vw;
+  align-self: center;
 }
 
 hr {
@@ -68,5 +85,33 @@ input[type="number"]::-webkit-inner-spin-button {
 img {
   width: 15vh;
   height: 15vh;
-  padding-right: 2vh;
+}
+
+fluent-checkout-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+::placeholder {
+  width: fit-content;
+  background-color: #d3d3d3;
+  color: black;
+}
+
+fluent-error {
+  position: absolute;
+  color: #cd5c5c;
+  right: 1vh;
+  top: 7vh;
+}
+
+button {
+  background-color: #8cb979;
+  color: white;
+  border: none;
+  width: 95%;
+  height: 8vh;
+  margin-top: 5vh;
 }

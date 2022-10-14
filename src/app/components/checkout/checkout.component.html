@@ -1,0 +1,73 @@
+<div>
+  <fluent-card *ngFor="let book of book">
+    <img src="{{ book.imagePath }}" />
+    <fluent-container>
+      <fluent-description-container>
+        <fluent-title> {{ book.title }}</fluent-title>
+        <fluent-price>{{ book.price | currency: "EUR" }}</fluent-price>
+      </fluent-description-container>
+    </fluent-container>
+  </fluent-card>
+</div>
+
+<fluent-checkout>
+  <fluent-title>
+    <p>Total cost: &nbsp;</p>
+  </fluent-title>
+  <strong> {{ totalCost | currency: "EUR" }}</strong>
+</fluent-checkout>
+
+<fluent-checkout-form>
+  <form [formGroup]="checkOutForm" (ngSubmit)="collectData()">
+    <fluent-checkout-container>
+      <hr />
+      <input
+        formControlName="email"
+        class="email"
+        type="text"
+        name="email"
+        placeholder="email: "
+      />
+      <fluent-error
+        class="error"
+        *ngIf="getAllData['email'].invalid && getAllData['email'].touched"
+        >{{ this.emailErrorMessage }}</fluent-error
+      >
+      <input
+        formControlName="confirmemail"
+        class="email"
+        type="text"
+        name="confirmemail"
+        placeholder="confirm email: "
+      />
+      <fluent-error
+        class="error"
+        *ngIf="getAllData['email'].value != getAllData['confirmemail'].value"
+        >{{ this.confirmationErrorMessage }}</fluent-error
+      >
+      <input
+        formControlName="namesurname"
+        class="email"
+        type="text"
+        name="namesurname"
+        placeholder="Name / surname: "
+      />
+      <fluent-error
+        class="error"
+        *ngIf="
+          getAllData['namesurname'].invalid && getAllData['namesurname'].touched
+        "
+        >{{ this.nameSurnameMessage }}</fluent-error
+      >
+      <fluent-button
+        type="submit"
+        appearance="outline"
+        [disabled]="
+          checkOutForm.invalid ||
+          getAllData['email'].value != getAllData['confirmemail'].value
+        "
+        >Order</fluent-button
+      >
+    </fluent-checkout-container>
+  </form>
+</fluent-checkout-form>

@@ -1,0 +1,76 @@
+hr {
+  width: 95%;
+  height: 0.2vh;
+  background-color: #000;
+}
+
+img {
+  width: 15vh;
+  height: 15vh;
+  padding-right: 2vh;
+}
+
+div {
+  margin-top: 20vh;
+}
+
+fluent-card {
+  display: flex;
+  flex-direction: row;
+  padding: 0 16px;
+  border: solid;
+  border-radius: revert;
+  padding: 1vh;
+  margin-top: 5vh;
+}
+
+fluent-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+fluent-description-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+fluent-checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fluent-checkout-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+}
+
+::placeholder {
+  width: fit-content;
+  background-color: #d3d3d3;
+  color: black;
+}
+
+.email {
+  width: 90%;
+  margin-top: 3vh;
+}
+
+fluent-error {
+  color: #cd5c5c;
+}
+
+fluent-button {
+  background-color: #8cb979;
+  color: white;
+  border: none;
+  width: 95%;
+  height: 8vh;
+  margin-top: 5vh;
+}

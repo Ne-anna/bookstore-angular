@@ -2,10 +2,10 @@
   this.emptyText
 }}</fluent-text-empty>
 
-<fluent-carde *ngIf="book.length != 0">
+<fluent-carde *ngIf="book.length != 0" (click)="updateTotal()">
   <fluent-card *ngFor="let book of book">
     <img src="{{ book.imagePath }}" />
-    <fluent-container (click)="updateTotal()">
+    <fluent-container>
       <fluent-description-container>
         <fluent-title> {{ book.title }}</fluent-title>
         <fluent-price>{{ book.price | currency: "EUR" }}</fluent-price>
@@ -21,6 +21,7 @@
           max="10"
           #input
           [value]="book.quantity"
+          onkeydown="return false"
           (blur)="validateInput($event, input.value, book)"
         />
       </fluent-description-container>
@@ -36,8 +37,8 @@
       <strong> {{ totalCost | currency: "EUR" }}</strong>
     </fluent-price>
 
-    <fluent-button>
-      <p>Checkout</p>
-    </fluent-button>
+    <fluent-checkout-button [routerLink]="['/checkout']">
+      <p>{{ this.checkout }}</p>
+    </fluent-checkout-button>
   </fluent-checkout>
 </fluent-carde>

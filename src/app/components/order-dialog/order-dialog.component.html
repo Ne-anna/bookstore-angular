@@ -1,0 +1,14 @@
+<fluent-background></fluent-background>
+
+<fluent-modal>
+  <fluent-modal-dialog>
+    <fluent-title>
+      <p>{{ this.thankYou }}</p>
+    </fluent-title>
+    <fluent-button-container>
+      <fluent-button [routerLink]="['']" (click)="closeModal()">
+        <strong>{{ this.homePage }}</strong>
+      </fluent-button>
+    </fluent-button-container>
+  </fluent-modal-dialog>
+</fluent-modal>
