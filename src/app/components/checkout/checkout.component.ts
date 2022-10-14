@@ -56,7 +56,7 @@ export class CheckoutComponent implements OnInit {
     document.body.style.overflow = 'hidden';
   }
 
-  collectData() {
+  public collectData() {
     this.orderService.getOrderData().subscribe((orderedBooks: OrderBook[]) => {
       this.items = orderedBooks;
     });

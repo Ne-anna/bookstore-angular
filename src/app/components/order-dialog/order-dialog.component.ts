@@ -21,7 +21,7 @@ export class OrderDialogComponent implements OnInit {
     this.homePage = 'Home page';
   }
 
-  closeModal() {
+  public closeModal() {
     if (this.dialogRef.open(OrderDialogComponent)) {
       this.dialogRef.closeAll();
       document.body.style.overflow = 'unset';
