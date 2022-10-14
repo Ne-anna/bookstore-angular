@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from 'src/app/services/orders.service';
+import { OrderBook } from 'src/app/order';
 
 @Component({
   selector: 'app-checkout',
@@ -18,6 +19,8 @@ export class CheckoutComponent implements OnInit {
   public book = this.cartService.getItems();
 
   totalCost!: number;
+
+  public items: any[] = [];
 
   constructor(
     private cartService: CartService,
@@ -36,7 +39,7 @@ export class CheckoutComponent implements OnInit {
     ]),
     confirmemail: new FormControl('', [
       Validators.required,
-      // Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
     ]),
     namesurname: new FormControl('', [
       Validators.required,
@@ -54,9 +57,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   collectData() {
-    this.orderService.addOrderToFile();
-    this.orderService.getOrderData();
-    // this.cartService.removeAll();
+    this.orderService.getOrderData().subscribe((orderedBooks: OrderBook[]) => {
+      this.items = orderedBooks;
+    });
+    this.orderService.userInfo = this.checkOutForm.value;
+    this.orderService.totalCost = this.totalCost;
+    this.orderService.addOrderToFile().subscribe();
     this.openModal();
   }
 

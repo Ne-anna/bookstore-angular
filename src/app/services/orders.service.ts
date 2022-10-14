@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { OrderBook } from '../order';
 import { CartService } from './cart.service';
 
@@ -12,6 +11,8 @@ export class OrdersService {
   private apiOrderUrl = 'http://localhost:5000/order';
 
   public orderedBooks = this.cartService.getItems();
+  public userInfo: any;
+  public totalCost!: number;
 
   constructor(
     private httpClient: HttpClient,
@@ -19,11 +20,21 @@ export class OrdersService {
   ) {}
 
   getOrderData(): Observable<OrderBook[]> {
-    return this.httpClient.get<OrderBook[]>(this.apiOrderUrl);
+    return this.httpClient.get<OrderBook[]>(this.apiOrderUrl).pipe(
+      map(() => {
+        let orderItems: OrderBook[] = [];
+        for (let item of this.orderedBooks) {
+          orderItems.push(new OrderBook(item));
+        }
+        return orderItems && this.userInfo && this.totalCost;
+      })
+    ); 
   }
 
   addOrderToFile(): Observable<any> {
-    const order = this.orderedBooks;
-    return this.httpClient.post(this.apiOrderUrl, { order });
+    const orderedBooks = this.orderedBooks;
+    const userInfo = this.userInfo;
+    const totalCost = this.totalCost;
+    return this.httpClient.post(this.apiOrderUrl, { orderedBooks, userInfo, totalCost});
   }
 }
