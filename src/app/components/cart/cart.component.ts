@@ -38,7 +38,6 @@ export class CartComponent implements OnInit {
     if (quantity < 1 || quantity > 10) {
       event.target.value = String(book.quantity);
     } else book.quantity = parseInt(changeQuantity);
-    console.log(book.quantity);
   }
 
   public updateTotal() {
