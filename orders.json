@@ -11,7 +11,7 @@
       "imageAltTag": "Spogulija book cover",
       "description": "The ideals of truthfulness, passion and beauty have been fulfilled by many, many artists in the Daile Theater, and nowadays among them is also an actor, to whom theater critic Līvija Dūmiņa dedicated a voluminous book Artūra Skrastiņa Spogulija.",
       "title": "Artūra Skrastiņa Spogulija",
-      "price": 17.80,
+      "price": 17.8,
       "id": 1,
       "quantity": 1
     },
@@ -53,6 +53,6 @@
     }
   ],
   "order": [
-    
+   
   ]
 }
