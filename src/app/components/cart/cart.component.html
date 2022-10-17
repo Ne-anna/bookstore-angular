@@ -3,6 +3,7 @@
 }}</fluent-text-empty>
 
 <fluent-carde *ngIf="book.length != 0" (click)="updateTotal()">
+  <fluent-back-button appearance="outline" (click)="previousPage()">Back</fluent-back-button>
   <fluent-card *ngFor="let book of book">
     <img src="{{ book.imagePath }}" />
     <fluent-container>

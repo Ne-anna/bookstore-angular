@@ -9,7 +9,7 @@ fluent-text-empty {
 fluent-card {
   display: flex;
   flex-direction: row;
-  margin: 82px auto 32px;
+  margin: 3vh auto 32px;
   padding: 0 16px;
   border: solid;
   border-radius: revert;
@@ -50,7 +50,18 @@ fluent-checkout {
   flex-direction: column;
 }
 
-fluent-checkout-button {
+fluent-back-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #8cb979;
+  color: white;
+  border: none;
+  align-self: center;
+  margin-top: 13vh;
+}
+
+fluent-checkout-button{
   justify-content: center;
   align-items: center;
   display: flex;

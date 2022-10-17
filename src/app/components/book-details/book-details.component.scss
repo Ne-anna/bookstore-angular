@@ -1,8 +1,18 @@
+fluent-back-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #8cb979;
+  color: white;
+  border: none;
+  align-self: center;
+  margin-top: 13vh;
+}
+
 fluent-card {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 3vh auto 5.62vh;
   padding: 0 16px;
-  max-width: 960px;
   flex-direction: column;
 }
 

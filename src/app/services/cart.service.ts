@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { BookData } from '../data';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -8,11 +9,18 @@ import { BookData } from '../data';
 export class CartService {
   public items: BookData[] = [];
 
+  constructor(private location: Location) 
+  {}
+
   private valueSource = new BehaviorSubject<number>(0);
   currentValue = this.valueSource.asObservable();
 
   getItems() {
     return this.items;
+  }
+
+  previousPage() {
+    this.location.back();
   }
 
   addToCart(product: BookData, quantity: number) {
