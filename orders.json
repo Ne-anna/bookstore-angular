@@ -7,12 +7,21 @@
   },
   "book": [
     {
+      "imagePath": "assets/images/spogulija.jpg",
+      "imageAltTag": "Spogulija book cover",
+      "description": "The ideals of truthfulness, passion and beauty have been fulfilled by many, many artists in the Daile Theater, and nowadays among them is also an actor, to whom theater critic Līvija Dūmiņa dedicated a voluminous book Artūra Skrastiņa Spogulija.",
+      "title": "Artūra Skrastiņa Spogulija",
+      "price": 17.80,
+      "id": 1,
+      "quantity": 1
+    },
+    {
       "imagePath": "assets/images/scythe.jpg",
       "imageAltTag": "Scythe book cover",
       "description": "A world with no hunger, no disease, no war, no misery. Humanity has conquered all those things, and has even conquered death. Now scythes are the only ones who can end life—and they are commanded to do so, in order to keep the size of the population under control.",
       "title": "Scythe",
       "price": 10.95,
-      "id": 1,
+      "id": 2,
       "quantity": 1
     },
     {
@@ -21,7 +30,7 @@
       "description": "Rowan has gone rogue, and has taken it upon himself to put the Scythedom through a trial by fire. Literally. In the year since Winter Conclave, he has gone off-grid, and has been striking out against corrupt scythes—not only in MidMerica, but across the entire continent. He is a dark folk hero now—“Scythe Lucifer”—a vigilante taking down corrupt scythes in flames.",
       "title": "Thunderhead",
       "price": 12.5,
-      "id": 2,
+      "id": 3,
       "quantity": 1
     },
     {
@@ -30,7 +39,16 @@
       "description": "It’s been three years since Rowan and Citra disappeared; since Scythe Goddard came into power; since the Thunderhead closed itself off to everyone but Grayson Tolliver.",
       "title": "The toll",
       "price": 15,
-      "id": 3,
+      "id": 4,
+      "quantity": 1
+    },
+    {
+      "imagePath": "assets/images/resonstostayalive.jpg",
+      "imageAltTag": "Reasons to Stay Alive book cover",
+      "description": "Like nearly one in five people, Matt Haig suffers from depression. Reasons to Stay Alive is Matt’s inspiring account of how, minute by minute and day by day, he overcame the disease with the help of reading, writing, and the love of his parents and his girlfriend (and now-wife), Andrea. And eventually, he learned to appreciate life all the more for it.",
+      "title": "Reasons to Stay Alive",
+      "price": 9.45,
+      "id": 5,
       "quantity": 1
     }
   ],

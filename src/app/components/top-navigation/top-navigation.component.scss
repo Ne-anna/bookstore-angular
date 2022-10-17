@@ -4,7 +4,7 @@ fluent-nav {
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   z-index: 20;
@@ -21,12 +21,12 @@ button {
 }
 
 fluent-title {
-  padding-left: 8px;
+  padding-left: 1.4vh;
   font-size: 1.5em;
   font-weight: bold;
   font-style: italic;
 }
 
 .navigation__cart {
-  padding-bottom: 6px;
+  padding-bottom: 1.05vh;
 }

@@ -12,7 +12,7 @@ fluent-back-button {
 fluent-card {
   display: flex;
   margin: 3vh auto 5.62vh;
-  padding: 0 16px;
+  padding: 0 2.8vh;
   flex-direction: column;
 }
 
@@ -27,11 +27,13 @@ fluent-title {
   justify-content: center;
   text-transform: uppercase;
   font-weight: bolder;
+  margin: 3vh;
 }
 
 img {
   height: 70vh;
   width: 100%;
+  margin-bottom: 2vh;
 }
 
 fleunt-quantity {
@@ -61,6 +63,6 @@ fluent-price {
 }
 
 input[type="number"]::-webkit-inner-spin-button {
-  padding-left: 10px;
+  padding-left: 1.75vh;
   opacity: 1000;
 }
