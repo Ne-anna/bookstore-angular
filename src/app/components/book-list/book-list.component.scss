@@ -3,6 +3,8 @@ fluent-card {
   margin: 10vh auto 6vh;
   padding: 0 2.8vh;
   flex-direction: column;
+  max-height: 90vh;
+  height: fit-content;
 }
 
 fluent-button {
@@ -12,7 +14,7 @@ fluent-button {
 }
 
 img {
-  height: 80vh;
+  height: 65vh;
   width: 100%;
 }
 
