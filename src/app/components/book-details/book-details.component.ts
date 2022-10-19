@@ -27,6 +27,10 @@ export class BookDetailsComponent {
     this.addToCartText = 'Add to cart';
   }
 
+  public previousPage() {
+    this.cartService.previousPage();
+  }
+
   public openModal() {
     this.dialogRef.open(PopUpComponent);
     document.body.style.overflow = 'hidden';

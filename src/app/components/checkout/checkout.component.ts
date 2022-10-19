@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit {
 
   public book = this.cartService.getItems();
 
-  totalCost!: number;
+  public totalCost!: number;
 
   public items: any[] = [];
 

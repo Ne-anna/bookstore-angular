@@ -1,9 +1,10 @@
 fluent-card {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
+  margin: 10vh auto 6vh;
+  padding: 0 2.8vh;
   flex-direction: column;
+  max-height: 90vh;
+  height: fit-content;
 }
 
 fluent-button {
@@ -13,7 +14,7 @@ fluent-button {
 }
 
 img {
-  height: 80vh;
+  height: 65vh;
   width: 100%;
 }
 
@@ -22,6 +23,7 @@ fluent-description {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 2vh;
 }
 
 fluent-title {

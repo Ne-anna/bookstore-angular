@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { BookData } from 'src/app/data';
 import { CartService } from 'src/app/services/cart.service';
@@ -17,14 +16,19 @@ export class CartComponent implements OnInit {
   public book = this.cartService.getItems();
 
   public inputValue = new BehaviorSubject<number>(0);
-  someValue = this.inputValue.asObservable();
+  public someValue = this.inputValue.asObservable();
 
-  totalCost!: number;
+  public totalCost!: number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService
+    ) {
     this.xIcon = 'assets/icons/close-icon.svg';
     this.emptyText = 'Cart is empty!';
     this.checkout = 'Checkout';
+  }
+
+  public previousPage() {
+    this.cartService.previousPage();
   }
 
   public removeCartItem(item: BookData) {
