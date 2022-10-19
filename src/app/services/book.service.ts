@@ -7,7 +7,7 @@ import { BookData } from '../data';
   providedIn: 'root',
 })
 export class BookService {
-  private bookUrl = 'https://raw.githubusercontent.com/Ne-anna/bookstore-angular/Demo/orders.json';
+  private bookUrl = 'http://localhost:5000/book';
 
   constructor(private http: HttpClient) {}
 
