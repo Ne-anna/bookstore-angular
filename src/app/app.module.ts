@@ -11,6 +11,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 import {
   MatDialogModule,
@@ -30,6 +33,9 @@ import { OrderDialogComponent } from './components/order-dialog/order-dialog.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
     MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
