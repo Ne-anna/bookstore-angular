@@ -17,7 +17,7 @@ export class PopUpComponent {
     this.xIcon = 'assets/icons/close-icon.svg';
   }
 
-  closeModal() {
+  public closeModal() {
     if (this.dialogRef.open(PopUpComponent)) {
       this.dialogRef.closeAll();
       document.body.style.overflow = 'unset';

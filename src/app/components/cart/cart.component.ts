@@ -16,9 +16,9 @@ export class CartComponent implements OnInit {
   public book = this.cartService.getItems();
 
   public inputValue = new BehaviorSubject<number>(0);
-  someValue = this.inputValue.asObservable();
+  public someValue = this.inputValue.asObservable();
 
-  totalCost!: number;
+  public totalCost!: number;
 
   constructor(private cartService: CartService
     ) {
@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     this.checkout = 'Checkout';
   }
 
-  previousPage() {
+  public previousPage() {
     this.cartService.previousPage();
   }
 

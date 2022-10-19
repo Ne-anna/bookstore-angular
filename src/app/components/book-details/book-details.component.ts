@@ -27,7 +27,7 @@ export class BookDetailsComponent {
     this.addToCartText = 'Add to cart';
   }
 
-  previousPage() {
+  public previousPage() {
     this.cartService.previousPage();
   }
 
