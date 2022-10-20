@@ -8,7 +8,7 @@ import { CartService } from './cart.service';
   providedIn: 'root',
 })
 export class OrdersService {
-  private apiOrderUrl = 'http://localhost:5000/order';
+  private apiOrderUrl = 'api/order';
 
   public orderedBooks = this.cartService.getItems();
   public userInfo: any;

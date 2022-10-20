@@ -26,7 +26,7 @@ export class OrderDialogComponent implements OnInit {
       this.dialogRef.closeAll();
       document.body.style.overflow = 'unset';
     }
-    window.location.href="https://ansybooks.netlify.app"
+    // window.location.href="http://localhost:4200/"
   }
 
   ngOnInit() {
