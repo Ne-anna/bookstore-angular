@@ -1,4 +1,8 @@
-<fluen-cont
+<fluent-scroll
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()"
 >
   <fluent-card
     *ngFor="let book of book"
@@ -8,10 +12,10 @@
     <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
     <fluent-description>
       <fluent-title>
-        {{ book.title | slice:0:20}}{{ book.title.length > 20 ? '...' : '' }}
+        {{ book.title | slice: 0:20 }}{{ book.title.length > 20 ? "..." : "" }}
       </fluent-title>
       <fluent-price>{{ book.price | currency }}</fluent-price>
     </fluent-description>
     <fluent-button appearance="outline">{{ this.viewMoreText }}</fluent-button>
   </fluent-card>
-</fluen-cont>
+</fluent-scroll>
