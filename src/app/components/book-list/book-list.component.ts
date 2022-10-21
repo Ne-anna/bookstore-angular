@@ -14,8 +14,16 @@ export class BookListComponent {
     this.viewMoreText = 'View more';
   }
 
+  page = 1;
+
+  public onScroll() {
+    this.bookService.getBooks(++this.page).subscribe((books: BookData[]) => {
+      this.book.push(...books);
+    })
+  }
+
   public getBooks(): void {
-    this.bookService.getBooks().subscribe((book) => (this.book = book));
+    this.bookService.getBooks(this.page).subscribe((book) => (this.book = book));
   }
 
   ngOnInit(): void {
