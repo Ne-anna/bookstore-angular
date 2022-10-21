@@ -14,11 +14,6 @@ export class BookListComponent {
     this.viewMoreText = 'View more';
   }
 
-  public onScroll() {
-    // const length = this.book.length;
-    console.log('did it scroll?');
-  }
-
   public getBooks(): void {
     this.bookService.getBooks().subscribe((book) => (this.book = book));
   }

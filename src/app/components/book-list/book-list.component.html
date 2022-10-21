@@ -1,17 +1,14 @@
-<fluen-cont
+<fluent-card
+  *ngFor="let book of book"
+  [title]="book.title + ' details'"
+  [routerLink]="['/book', book.id]"
 >
-  <fluent-card
-    *ngFor="let book of book"
-    [title]="book.title + ' details'"
-    [routerLink]="['/book', book.id]"
-  >
-    <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
-    <fluent-description>
-      <fluent-title>
-        {{ book.title | slice:0:20}}{{ book.title.length > 20 ? '...' : '' }}
-      </fluent-title>
-      <fluent-price>{{ book.price | currency }}</fluent-price>
-    </fluent-description>
-    <fluent-button appearance="outline">{{ this.viewMoreText }}</fluent-button>
-  </fluent-card>
-</fluen-cont>
+  <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />
+  <fluent-description>
+    <fluent-title>
+      {{ book.title | slice: 0:20 }}{{ book.title.length > 20 ? "..." : "" }}
+    </fluent-title>
+    <fluent-price>{{ book.price | currency }}</fluent-price>
+  </fluent-description>
+  <fluent-button appearance="outline">{{ this.viewMoreText }}</fluent-button>
+</fluent-card>
