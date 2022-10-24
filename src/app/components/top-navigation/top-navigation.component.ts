@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import data from '../../data.json';
+import { Component } from '@angular/core';
+import data from '../../../../orders.json';
 import { AllData } from '../../data';
 @Component({
   selector: 'app-top-navigation',
