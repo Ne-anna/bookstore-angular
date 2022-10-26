@@ -5,6 +5,7 @@ import { CartService } from '../../services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { ErrorMessageComponent } from '../error-message/error-message.component';
 
 @Component({
   selector: 'app-book-details',
@@ -36,10 +37,19 @@ export class BookDetailsComponent {
     document.body.style.overflow = 'hidden';
   }
 
+  public openError() {
+    this.dialogRef.open(ErrorMessageComponent);
+    document.body.style.overflow = 'hidden';
+  }
+
   public addToCart(book: BookData, quantity: string) {
-    this.cartService.addToCart(book, Number(quantity));
-    this.openModal();
+    let cartServiceResponse = this.cartService.addToCart(book, Number(quantity));
     this.cartService.changeValue(Number(quantity));
+    if (cartServiceResponse === false) {
+      this.openError();
+    } 
+    else 
+    this.openModal();
   }
 
   public validateInput(event: Event): void {

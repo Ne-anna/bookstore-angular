@@ -1,0 +1,28 @@
+
+
+fluent-modal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 35vh;
+  z-index: 100;
+}
+
+fluent-modal-dialog {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20vh;
+  z-index: 100;
+  width: 40vh;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+
+}
