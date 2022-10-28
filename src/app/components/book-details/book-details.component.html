@@ -1,5 +1,5 @@
 <fluent-back-button appearance="outline" (click)="previousPage()">Back</fluent-back-button>
-<fluent-card *ngIf="book" [title]="book.title + ' details'">
+<fluent-card *ngIf="book">
   <fluent-title>
     {{ book.title }}
   </fluent-title>

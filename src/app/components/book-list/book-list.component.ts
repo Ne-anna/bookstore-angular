@@ -10,20 +10,23 @@ import { BookService } from '../../services/book.service';
 export class BookListComponent {
   public book: BookData[] = [];
   public viewMoreText!: string;
+
+  public bookAmount: number = 2;
   constructor(private bookService: BookService) {
     this.viewMoreText = 'View more';
   }
 
-  page = 1;
-
   public onScroll() {
-    this.bookService.getBooks(++this.page).subscribe((books: BookData[]) => {
-      this.book.push(...books);
-    })
+    const totalBooks = this.book.length;
+    if (this.bookAmount < totalBooks) {
+      this.bookAmount = this.bookAmount + 2;
+    }
   }
 
   public getBooks(): void {
-    this.bookService.getBooks(this.page).subscribe((book) => (this.book = book));
+    this.bookService
+      .getBooks()
+      .subscribe((book) => (this.book = book));
   }
 
   ngOnInit(): void {

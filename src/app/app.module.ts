@@ -19,12 +19,14 @@ import {
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationComponent,
     PopUpComponent,
     OrderDialogComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,

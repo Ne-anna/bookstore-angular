@@ -23,7 +23,7 @@ export class CartService {
     this.location.back();
   }
 
-  addToCart(product: BookData, quantity: number) {
+  addToCart(product: BookData, quantity: number): boolean {
     const exist = this.items.find((item) => {
       return item.id === product.id;
     });
@@ -32,11 +32,10 @@ export class CartService {
       exist.quantity += quantity;
       if (exist.quantity >= 11) {
         exist.quantity = 10;
-        window.alert(
-          'If you trying to buy MORE than 10 books, only 10 books will be added to your cart.'
-        );
+        return false;
       }
     } else this.items.push({ ...product, quantity });
+    return true;
   }
 
   changeValue(quantity: number) {

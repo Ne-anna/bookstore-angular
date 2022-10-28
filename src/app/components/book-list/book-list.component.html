@@ -1,11 +1,10 @@
 <fluent-scroll
 infinite-scroll
 [infiniteScrollDistance]="2"
-[infiniteScrollThrottle]="1000"
+[infiniteScrollThrottle]="50"
 (scrolled)="onScroll()">
   <fluent-card
-    *ngFor="let book of book"
-    [title]="book.title + ' details'"
+    *ngFor="let book of book | slice: 0: bookAmount "
     [routerLink]="['/book', book.id]"
   >
     <img src="{{ book.imagePath }}" alt="{{ book.imageAltTag }}" />

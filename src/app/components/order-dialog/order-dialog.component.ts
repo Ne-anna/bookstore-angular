@@ -14,7 +14,6 @@ export class OrderDialogComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialog,
-    private orderService: OrdersService,
     private cartService: CartService
   ) {
     this.thankYou = 'Thank you for your order!';
